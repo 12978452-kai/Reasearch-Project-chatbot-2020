@@ -37,37 +37,6 @@ pip install rasa[spacy]
 python -m spacy download en_core_web_md
 python -m spacy link en_core_web_md en
 ```
-## RASA X Installation for MACOS
-The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/ .After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
-```
-multipass launch --name k3s --mem 4G --disk 50G
-multipass shell k3s
-
-```
-After creating the instance, you can download the RASA X now.
-The command is: 
-```
-curl -s get-rasa-x.rasa.com | sudo bash
-
-```
-Once it finish loading, you can execute the command to check the ipv4 to access the RASA X.
-The command is: 
-```
-multipass info k3s
-
-```
-
-## RASA X installation for Linux
-Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
-```
-pip install rasa[spacy]
-python -m spacy download en_core_web_md
-python -m spacy link en_core_web_md en
-```
-Then, you should execute the command below to install Rasa X:
-```
-pip install -U rasa-x --extra-index-url https://pypi.rasa.com/simple
-```
 
 ## Command Line Interface
 To train the bot from the files, use:
@@ -87,10 +56,6 @@ rasa shell
 On a separate terminal, run an action server for custom actions with:
 ```
 rasa run actions
-```
-Then open the second terminal and execute Rasa X:
-```
-Rasa X
 ```
 
 ## Data files
@@ -163,8 +128,39 @@ get_search_list()       -> returns list of alt. names paired with ID
 get_type()              -> returns type (course, major, subject, etc.)
 url()                   -> returns url on UTS handbook 
 ```
+## RASA X Installation for MACOS
+The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/ .After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
+```
+multipass launch --name k3s --mem 4G --disk 50G
+multipass shell k3s
 
-### Tracker Stores
+```
+After creating the instance, you can download the RASA X now.
+The command is: 
+```
+curl -s get-rasa-x.rasa.com | sudo bash
+
+```
+Once it finish loading, you can execute the command to check the ipv4 to access the RASA X.
+The command is: 
+```
+multipass info k3s
+
+```
+
+## RASA X installation for Linux
+Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
+```
+pip install rasa[spacy]
+python -m spacy download en_core_web_md
+python -m spacy link en_core_web_md en
+```
+Then, you should execute the command below to install Rasa X:
+```
+pip install -U rasa-x --extra-index-url https://pypi.rasa.com/simple
+```
+
+## Tracker Stores
 All conversations are stored within a tracker store. In this chatbot, the conversations are stored in rasa.db. The official compatible databases is: PostgreSQL, Oracle and SQLite. For setting up the database with SQL, user need to add the require configuration in endpoints.yml.
 The configuration is the following:
 tracker_store:
@@ -263,4 +259,12 @@ To start a HTTP tunnel on port 5005, run this next:
 ```
 Finally, you can find "http://" or "https://",open any of them and this is the network address of the chatbot.
 
+## Command Line for RASA X 
 
+On a separate terminal, run an action server for custom actions with:
+```
+rasa run actions
+```
+Then open the second terminal and execute Rasa X:
+```
+Rasa X
