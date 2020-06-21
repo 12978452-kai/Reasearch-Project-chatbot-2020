@@ -59,9 +59,26 @@ tracker_store:
     driver: my-driver
 ```
 After adding the configuration, the conversation data can be saved the the database.
-## Data files
-There are a few editable data files to modify the training of the chatbot
-
+## Rasa x installation for Linux
+Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual 
+Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
+```
+pip install rasa[spacy]
+python -m spacy download en_core_web_md
+python -m spacy link en_core_web_md en
+```
+Then, you should execute the command below to install Rasa X:
+```
+pip install -U rasa-x --extra-index-url https://pypi.rasa.com/simple
+```
+On a separate terminal, run an action server for custom actions with:
+```
+rasa run actions
+```
+Then open the second terminal and execute Rasa X:
+```
+Rasa X
+```
 ### The dataset
 There are a few .csv files that contain the structure of courses and subjects at UTS. The dataset consists of recursive relationships of abstracted structures. ```data/items.csv``` simply contains the code and name of an entry in the UTS Directory, while ```data/relations.csv``` contains the said recursive relations. ```data/courses.csv``` is a specialised type of structure for courses since courses have more attributes such as credit points, ATAR, and other details as mentioned above. ```data/alt_names.csv``` contains alternate names for courses which is used for searching course names.
 
