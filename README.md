@@ -229,7 +229,7 @@ tracker_store:
     driver: my-driver
 ```
 After adding the configuration, the conversation data can be saved the the database.
-## Rasa x installation for Linux
+## RASA X installation for Linux
 Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
 ```
 pip install rasa[spacy]
