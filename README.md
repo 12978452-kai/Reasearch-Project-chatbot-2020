@@ -216,7 +216,7 @@ The command is:
 multipass info k3s
 
 ```
-RASA X installation for Linux
+**Alternatives for Step 1:** RASA X installation for Linux
 Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
 ```
 pip install rasa[spacy]
