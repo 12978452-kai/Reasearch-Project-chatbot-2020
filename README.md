@@ -197,7 +197,8 @@ This starts the well-trained chatbot stored under the "models" folder, and the w
 
 ## Steps for deploying RASA X, storing conversation data and publishing chatbot through ngrok
 
-**Step 1:** RASA X Installation for MACOS
+**Step 1:** 
+RASA X Installation for MACOS
 The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/ .After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
 ```
 multipass launch --name k3s --mem 4G --disk 50G
@@ -216,7 +217,8 @@ The command is:
 multipass info k3s
 
 ```
-**Alternatives for Step 1:** RASA X installation for Linux
+**Alternatives for Step 1:** 
+RASA X installation for Linux
 Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
 ```
 pip install rasa[spacy]
@@ -228,7 +230,8 @@ Then, you should execute the command below to install Rasa X:
 pip install -U rasa-x --extra-index-url https://pypi.rasa.com/simple
 ```
 
-**Step 2:** Ngrok installation for Linux
+**Step 2:** 
+Ngrok installation for Linux
 The link for Ngrok installation for Linux: https://ngrok.com/download .
 First, download the ngrok client.On Linux or OSX you can unzip ngrok from a terminal with the following command.
 ```
