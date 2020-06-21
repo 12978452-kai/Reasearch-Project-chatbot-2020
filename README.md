@@ -68,14 +68,6 @@ Then, you should execute the command below to install Rasa X:
 ```
 pip install -U rasa-x --extra-index-url https://pypi.rasa.com/simple
 ```
-On a separate terminal, run an action server for custom actions with:
-```
-rasa run actions
-```
-Then open the second terminal and execute Rasa X:
-```
-Rasa X
-```
 
 ## Command Line Interface
 To train the bot from the files, use:
@@ -95,6 +87,10 @@ rasa shell
 On a separate terminal, run an action server for custom actions with:
 ```
 rasa run actions
+```
+Then open the second terminal and execute Rasa X:
+```
+Rasa X
 ```
 
 ## Data files
