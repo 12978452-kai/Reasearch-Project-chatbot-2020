@@ -2,7 +2,7 @@
 Supervisor: [Wei Liu](https://www.uts.edu.au/staff/wei.liu)
 
 ## Description
-UTS FEIT Chatbot is a chatbot directed for prospective high school students in search of universities to get into. The chatbot is able to answer user queries regarding courses at UTS including details of the course such as duration, credit points, as well as answering queries regarding the structure of courses and subjects at UTS. 
+UTS FEIT Chatbot is a chatbot directed for prospective high school students in search of universities to get into. The chatbot is able to answer user queries regarding courses at UTS including details of the course such as duration, credit points, as well as answering queries regarding the structure of courses and subjects at UTS. In this project, we aim to create a chat bot with course query for both UTS university students and postgraduate students, as well as a UI interface and a database to store chatbot’ conversions records. 
 
 ## Functionality
 
@@ -77,59 +77,21 @@ Then open the second terminal and execute Rasa X:
 ```
 Rasa X
 ```
-### The dataset
-There are a few .csv files that contain the structure of courses and subjects at UTS. The dataset consists of recursive relationships of abstracted structures. ```data/items.csv``` simply contains the code and name of an entry in the UTS Directory, while ```data/relations.csv``` contains the said recursive relations. ```data/courses.csv``` is a specialised type of structure for courses since courses have more attributes such as credit points, ATAR, and other details as mentioned above. ```data/alt_names.csv``` contains alternate names for courses which is used for searching course names.
+### Ngrok installation for Linux
+The link for Ngrok installation for Linux:
+https://ngrok.com/download .
+First, download the ngrok client.On Linux or OSX you can unzip ngrok from a terminal with the following command.
+```
+unzip /path/to/ngrok.zip
+```
+Running this command will add your authtoken to your ngrok.yml file. 
+```
+./ngrok authtoken <YOUR_AUTH_TOKEN>
+```
+To start a HTTP tunnel on port 5005, run this next:
+```
+./ngrok http 5005
+```
+Finally, you can find "http://" or "https://",open any of them and this is the network address of the chatbot.
 
-### NLU
-```data/nlu.md``` contains training sentences to train the NLU for intents and entities. Below is an example intent:
-```
-## intent:intent_name
-- sample sentence with [entity](entity_type)
-```
-```
-## intent:details
-- can you tell me about [c10148](code)
-```
-### Stories
-```data/stories.md``` contains story examples which are lists of intents, entities, and responses from the bot, with * denoting user input, and - denoting bot utterance/actions Example below:
-```
-## story_name
-* intent
-- utterance
-* intent{"entity_type":"entity"}
-- action
-```
-```
-## story_details_02
-* greet
-- utter_greet
-* details{"name":"bachelor of science in it"}
-- action_details
-* thanks
-- utter_thanks
-* goodbye
-- utter_goodbye  
-```
-### Domain
-Domain (```domain.yml```) is described as the ‘universe’ of the chatbot which contains lists of intents, entities, slots, and actions, where slots are saved entities/variables that define the story, while actions are custom responses that are executed after a command from the user. The domain also contain lists of simple utterances (as opposed to custom actions). For example:
-```
-utter_greet:
-- text: Hi there! I am Stu from UTS!
-- text: Hi! My name is Stu!
-- text: Hi there! I am Stu. Do you have any questions about FEIT at UTS?
-- text: Hey! I am a chatbot from UTS. Ask me what I can do!
-- text: Hello! I am Stu and I am from UTS 
-```
-### Other yml files
-```endpoints.yml``` contains endpoints required by the bot (i.e. action server), while ```credentials.yml``` are credentials required when running the chatbot on other platforms such as Facebook.
 
-### Python script
-```actions.py``` contains python codes that are run on action calls. Actions are represented as classes which has a function ```name``` that returns a string that corresponds to the name on the domain. The method ```run``` takes three attributes, a dispatcher, tracker, and domain that are used for the run methods.
-```directory_loader.py``` is a python script that loads the dataset in an Object-Oriented environment. The script overrides the [] operators for easy access for entries in the dataset. Functions in the file include:
-```
-code()                  -> returns full code (e.g. C10219 for 10219)
-get_name()              -> returns official item name
-get_search_list()       -> returns list of alt. names paired with ID
-get_type()              -> returns type (course, major, subject, etc.)
-url()                   -> returns url on UTS handbook 
-```
