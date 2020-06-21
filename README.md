@@ -44,26 +44,21 @@ multipass info k3s
 
 ```
 
-## Command Line Interface
-To train the bot from the files, use:
+## Tracker Stores
+All conversations are stored within a tracker store. In this chatbot, the conversations are stored in rasa.db. The official compatible databases is: PostgreSQL, Oracle and SQLite. For setting up the database with SQL, user need to add the require configuration in endpoints.yml.
+The configuration is the following:
+tracker_store:
 ```
-rasa train
+    type: SQL
+    dialect: "sqlite"  # the dialect used to interact with the db
+    url: ""  # (optional) host of the sql db, e.g. "localhost"
+    db: "rasa"  # path to your db
+    username:  # username used for authentication
+    password:  # password used for authentication
+    query: # optional dictionary to be added as a query string to the connection URL
+    driver: my-driver
 ```
-
-Then run the bot with:
-```
-rasa run
-```
-Or to test a conversation with Rasa in the command line, run:
-```
-rasa shell
-```
-
-On a separate terminal, run an action server for custom actions with:
-```
-rasa run actions
-```
-
+After adding the configuration, the conversation data can be saved the the database.
 ## Data files
 There are a few editable data files to modify the training of the chatbot
 
