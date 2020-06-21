@@ -168,6 +168,22 @@ get_type()              -> returns type (course, major, subject, etc.)
 url()                   -> returns url on UTS handbook 
 ```
 
+### Tracker Stores
+All conversations are stored within a tracker store. In this chatbot, the conversations are stored in rasa.db. The official compatible databases is: PostgreSQL, Oracle and SQLite. For setting up the database with SQL, user need to add the require configuration in endpoints.yml.
+The configuration is the following:
+tracker_store:
+```
+    type: SQL
+    dialect: "sqlite"  # the dialect used to interact with the db
+    url: ""  # (optional) host of the sql db, e.g. "localhost"
+    db: "rasa"  # path to your db
+    username:  # username used for authentication
+    password:  # password used for authentication
+    query: # optional dictionary to be added as a query string to the connection URL
+    driver: my-driver
+```
+After adding the configuration, the conversation data can be saved the the database.
+
 ## Steps for making a webchat tool
 Before using the webchat widget, one need to register and install the [ngrok](https://dashboard.ngrok.com/signup) by following the "Setup & Installation" four steps. Ngrok allows you to expose a web server running on your local machine to the internet. After installation, the following 6 steps help to enable the webchat.
 
@@ -233,22 +249,6 @@ rasa run actions
 rasa run -m models/20190717-114901.tar.gz --endpoints endpoints.yml --credentials credentials.yml
 ```
 This starts the well-trained chatbot stored under the "models" folder, and the webchat tool should be run fine. 
-
-## Tracker Stores
-All conversations are stored within a tracker store. In this chatbot, the conversations are stored in rasa.db. The official compatible databases is: PostgreSQL, Oracle and SQLite. For setting up the database with SQL, user need to add the require configuration in endpoints.yml.
-The configuration is the following:
-tracker_store:
-```
-    type: SQL
-    dialect: "sqlite"  # the dialect used to interact with the db
-    url: ""  # (optional) host of the sql db, e.g. "localhost"
-    db: "rasa"  # path to your db
-    username:  # username used for authentication
-    password:  # password used for authentication
-    query: # optional dictionary to be added as a query string to the connection URL
-    driver: my-driver
-```
-After adding the configuration, the conversation data can be saved the the database.
 
 ### Ngrok installation for Linux
 The link for Ngrok installation for Linux:
