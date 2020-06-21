@@ -24,8 +24,7 @@ The chatbot is able to retrieve substructures of a structure when asked (what su
 ###
 
 ## RASA X Installation for MACOS
-The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/
-After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
+The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/ .After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
 ```
 multipass launch --name k3s --mem 4G --disk 50G
 multipass shell k3s
@@ -60,8 +59,7 @@ tracker_store:
 ```
 After adding the configuration, the conversation data can be saved the the database.
 ## Rasa x installation for Linux
-Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual 
-Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
+Before install Rasa X, you should create a virtual environment through Anaconda. This is link for Anaconda: https://www.anaconda.com/products/individual .Rasa X is the improvement and update of Rasa, so you need to install Rasa firstly as well as pip package.
 ```
 pip install rasa[spacy]
 python -m spacy download en_core_web_md
