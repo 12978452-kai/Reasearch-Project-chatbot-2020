@@ -4,8 +4,6 @@ Supervisor: [Wei Liu](https://www.uts.edu.au/staff/wei.liu)
 ## Description
 UTS FEIT Chatbot is a chatbot directed for prospective high school students in search of universities to get into. The chatbot is able to answer user queries regarding courses at UTS including details of the course such as duration, credit points, as well as answering queries regarding the structure of courses and subjects at UTS. 
 
-A live instance of the chatbot is [live on WebChat](https://xinghaoyang.github.io/webchat/)
-
 ## Functionality
 
 ### Greeting/Introduction
@@ -25,12 +23,25 @@ The chatbot is able to retrieve substructures of a structure when asked (what su
 
 ###
 
-## Installation
-This chatbot utilises [Rasa](https://rasa.com) with [spaCy](https://spacy.io) for its language processing. Install using pip with:
+## RASA X Installation for MACOS
+The recommend method for installing RASA X in MACOS is through Multipass. This is the installation link for Multipass : https://multipass.run/
+After the installation of Multipass, you need to create an Ubuntu instance and access by below commands.
 ```
-pip install rasa[spacy]
-python -m spacy download en_core_web_md
-python -m spacy link en_core_web_md en
+multipass launch --name k3s --mem 4G --disk 50G
+multipass shell k3s
+
+```
+After creating the instance, you can download the RASA X now.
+The command is: 
+```
+curl -s get-rasa-x.rasa.com | sudo bash
+
+```
+Once it finish loading, you can execute the command to check the ipv4 to access the RASA X.
+The command is: 
+```
+multipass info k3s
+
 ```
 
 ## Command Line Interface
