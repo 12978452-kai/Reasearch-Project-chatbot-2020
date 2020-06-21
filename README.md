@@ -21,6 +21,11 @@ The chatbot can retrieve details of the course from the dataset, i.e. credit poi
 ### Structure information
 The chatbot is able to retrieve substructures of a structure when asked (what subjects are in a subject, what majors are in a choice block, etc.)
 
+### Database to store conversations
+we also designed a database (SQLite and PostgreSQL) for chatbots to test, to collect and store the content of students' conversations with the chatbots on web pages, facilitate real-time updates. At the same time, we could expand and improve the conversation model of AI chatbot.
+
+### Interface
+Create a graphical interface for the interaction between the user and the robot to improve the user experience.
 ###
 
 ## RASA X Installation for MACOS
